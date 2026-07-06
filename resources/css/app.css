@@ -1,0 +1,217 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-surface-dark: #0d0d0d;
+    --color-surface-card: #111111;
+    --color-surface-elevated: #1a1a1a;
+    --color-accent: #FF5A1F;
+    --color-accent-hover: #e54e18;
+
+    --shadow-glow: 0 0 20px rgba(255, 90, 31, 0.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    color: white;
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+.bg-surface-dark {
+    background-color: var(--color-surface-dark);
+}
+
+.shadow-glow {
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: var(--color-accent);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.btn-accent:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+}
+
+.admin-card {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--color-surface-card);
+    padding: 1.5rem;
+}
+
+.admin-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: rgb(156 163 175);
+}
+
+.admin-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-surface-dark);
+    padding: 0.625rem 1rem;
+    color: white;
+    transition: border-color 0.2s;
+}
+
+.admin-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.portfolio-card {
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--color-surface-card);
+    padding: 2rem;
+}
+
+.portfolio-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-surface-dark);
+    padding: 0.75rem 1rem;
+    color: white;
+    transition: border-color 0.2s;
+}
+
+.portfolio-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.portfolio-input::placeholder {
+    color: rgb(75 85 99);
+}
+
+.hex-icon {
+    display: flex;
+    height: 3.5rem;
+    width: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hex-icon:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(255, 90, 31, 0.3);
+}
+
+.hex-icon-lg {
+    height: 5rem;
+    width: 5rem;
+}
+
+.project-card {
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--color-surface-card);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 90, 31, 0.3);
+    box-shadow: var(--shadow-glow);
+}
+
+.filter-tab {
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(156 163 175);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.filter-tab:hover {
+    border-color: rgba(255, 90, 31, 0.3);
+    color: white;
+}
+
+.filter-tab-active {
+    border-color: var(--color-accent);
+    background-color: rgba(255, 90, 31, 0.1);
+    color: var(--color-accent);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.fade-in-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav[role="navigation"] span, nav[role="navigation"] a {
+    color: rgb(156 163 175);
+}
+
+nav[role="navigation"] a:hover {
+    color: var(--color-accent);
+}
